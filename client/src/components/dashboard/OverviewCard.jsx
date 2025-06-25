@@ -1,17 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-const OverviewCard = ({thumbnail, text, number, bgcolor}) => {
+const OverviewCard = ({ thumbnail, number, text, gradient }) => {
   return (
-    <div className="rounded flex bg-white">
-        <div className={`${bgcolor} text-3xl flex justify-center items-center text-white px-4`}>
-            {thumbnail}
-        </div>
-        <div className="pl-4 py-1">
-            <p className="text-lg font-semibold ">{text}</p>
-            <p className="text-xl font-bold">{number}</p>
-        </div>
+    <div className={`flex justify-between items-center p-4 rounded-md text-white ${gradient} shadow-sm`}>
+      <div>
+        <h2 className="text-3xl font-bold">{number}</h2>
+        <p className="text-sm uppercase tracking-wide">{text}</p>
+      </div>
+      <div className="text-4xl opacity-80">
+        {thumbnail}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default OverviewCard
+export default OverviewCard;
