@@ -20,7 +20,8 @@ const AdminSidebar = () => {
                 <FaBuilding />
                 <span>Departments</span>
             </NavLink>
-            <NavLink to="/admin-dashboard" className="flex items-center space-x-4 py-2.5 px-4 rounded">
+            <NavLink to="/admin-dashboard/employees" 
+            className={({isActive}) => `${isActive ? "bg-teal-500" : " "} flex items-center space-x-4 py-2.5 px-4 rounded`}>
                 <FaUsers />
                 <span>Employees</span>
             </NavLink>
