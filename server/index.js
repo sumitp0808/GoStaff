@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import authRouter from './routes/auth.js';
 import departmentRouter from './routes/department.js'
 import employeeRouter from './routes/employee.js'
@@ -11,8 +13,15 @@ dotenv.config();
 connectDB();
 
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 app.use(cors());
 app.use(express.json());
+
+app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
+
 app.use('/api/auth', authRouter);
 app.use('/api/department', departmentRouter);
 app.use('/api/employee', employeeRouter);

@@ -20,7 +20,7 @@ const AddEmployee = () => {
   
   const handleChange = (e) => {
     const {name, value, files} = e.target;
-    if(name === 'image'){
+    if(name === "image"){
       setFormData((prevData) => ({...prevData, [name] : files[0]}))
     }else{
       setFormData((prevData) => ({...prevData, [name] : value}))
