@@ -1,4 +1,5 @@
 import Salary from '../models/Salary.js'
+import Employee from '../models/Employee.js';
 
 
 const addSalary = async (req, res) => {
@@ -24,7 +25,12 @@ const addSalary = async (req, res) => {
 const getSalary = async (req, res) => {
     try{
         const {id} = req.params;
-        const salaries = await Salary.find({employeeId: id}).populate('employeeId','employeeId');
+        let salaries = await Salary.find({employeeId: id}).populate('employeeId','employeeId');
+        if(!salaries || salaries.length < 1){
+            // then may be it is userId from employee dashboard
+            const employee = await Employee.findOne({userId: id})
+            salaries = await Salary.find({employeeId: employee._id}).populate('employeeId','employeeId')
+        }
         return res.status(200).json({success: true, salaries})
     }catch(error){
         return res.status(500).json({success: false, error:"get salary server error"})
