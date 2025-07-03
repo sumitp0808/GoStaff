@@ -9,6 +9,7 @@ import employeeRouter from './routes/employee.js'
 import salaryRouter from './routes/salary.js'
 import leaveRouter from './routes/leave.js'
 import settingsRouter from './routes/settings.js'
+import dashboardRouter from './routes/dashboard.js'
 import connectDB from "./database/db.js";
 
 dotenv.config();
@@ -31,6 +32,7 @@ app.use('/api/employee', employeeRouter);
 app.use('/api/salary',salaryRouter);
 app.use('/api/leave',leaveRouter);
 app.use('/api/settings',settingsRouter);
+app.use('/api/dashboard',dashboardRouter);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);

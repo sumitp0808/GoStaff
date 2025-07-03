@@ -16,6 +16,8 @@ const addSalary = async (req, res) => {
             payDate
         })
         await newSalary.save();
+        //also update employee salary
+        const updateEmployee = await Employee.findByIdAndUpdate(employeeId, {salary: basicSalary})
         return res.status(200).json({success: true, message:`salary added to ${employeeId}`})
     }catch(error){
         return res.status(500).json({success: true, error:"salary add server error"})
