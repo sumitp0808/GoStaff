@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import OverviewCard from '../dashboard/OverviewCard'
 import { FaBuilding, FaCheckCircle, FaFileAlt, FaHourglassHalf, FaMoneyBillWave, FaTimesCircle, FaUsers } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../context/authContext'
 
 const Overview = () => {
+  const {user} = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate(`/employee-dashboard/profile/${user._id}`);
+  },[])
+
   return (
     <div className="p-6">
         <h3 className='text-2xl font-bold'>Dashboard Overview</h3>
