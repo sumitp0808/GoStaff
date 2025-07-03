@@ -8,7 +8,7 @@ const AdminLeave = () => {
 
     const fetchLeaves = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/leave`, {
+            const response = await axios.get(`https://go-staff.vercel.app/api/leave`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },

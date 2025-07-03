@@ -34,7 +34,7 @@ const Add = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
-        const response = await axios.post(`http://localhost:8080/api/salary/add`,salary,{
+        const response = await axios.post(`https://go-staff.vercel.app/api/salary/add`,salary,{
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
             },

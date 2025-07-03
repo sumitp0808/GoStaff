@@ -14,7 +14,7 @@ const authContext = ({children}) => {
             try {
                 const token = localStorage.getItem('token');
                 if(token){
-                    const response = await axios.get('http://localhost:8080/api/auth/verify',{
+                    const response = await axios.get('https://go-staff.vercel.app/api/auth/verify',{
                         headers: {
                             "Authorization" : `Bearer ${token}`
                         },

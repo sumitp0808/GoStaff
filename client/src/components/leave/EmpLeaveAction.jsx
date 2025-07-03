@@ -10,7 +10,7 @@ const EmpLeaveAction = () => {
 
     const fetchLeaves = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/leave/${id}`, {
+            const response = await axios.get(`https://go-staff.vercel.app/api/leave/${id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },

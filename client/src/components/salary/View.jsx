@@ -11,7 +11,7 @@ const View = () => {
 
     const fetchSalaries = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/salary/${id}`, {
+            const response = await axios.get(`https://go-staff.vercel.app/api/salary/${id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },

@@ -31,7 +31,7 @@ const LeaveDetails = () => {
 
   const changeStatus = async (id,status) => {
     try{
-        const response = await axios.put(`http://localhost:8080/api/leave/${id}`, {status},{
+        const response = await axios.put(`https://go-staff.vercel.app/api/leave/${id}`, {status},{
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`,
           }, 
