@@ -11,7 +11,7 @@ const LeaveDetails = () => {
     useEffect(() => {
     const fetchLeave = async () => {
       try{
-        const response = await axios.get(`http://localhost:8080/api/leave/details/${id}`, {
+        const response = await axios.get(`https://go-staff.vercel.app/api/leave/details/${id}`, {
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`,
           }

@@ -13,7 +13,7 @@ const EditDepartment = () => {
     const fetchDepartments = async () => {
       setDepLoading(true);
       try{
-        const response = await axios.get(`http://localhost:8080/api/department/${id}`, {
+        const response = await axios.get(`https://go-staff.vercel.app/api/department/${id}`, {
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`,
           }

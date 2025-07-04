@@ -33,7 +33,7 @@ export const columns = [
 export const fetchDepartments = async () => {
     let departments;
       try{
-        const response = await axios.get('http://localhost:8080/api/department', {
+        const response = await axios.get('https://go-staff.vercel.app/api/department', {
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`
           }
