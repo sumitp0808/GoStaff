@@ -4,11 +4,12 @@ import DataTable from 'react-data-table-component';
 import { columns, LeaveButtons } from '../../utils/LeaveHelper';
 
 const AdminLeave = () => {
+    const baseURL = import.meta.env.VITE_API_BASE_URL;
     const [leaves, setLeaves] = useState([]);
 
     const fetchLeaves = async () => {
         try {
-            const response = await axios.get(`https://go-staff.vercel.app/api/leave`, {
+            const response = await axios.get(`${baseURL}/api/leave`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },

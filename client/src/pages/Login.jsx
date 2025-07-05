@@ -4,6 +4,7 @@ import { useAuth } from '../context/authContext';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const baseURL = import.meta.env.VITE_API_BASE_URL;
     const [email, setEmail] = useState(''); 
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
@@ -13,7 +14,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("https://go-staff.vercel.app/api/auth/login", {email, password});
+            const response = await axios.post(`${baseURL}/api/auth/login`, {email, password});
             if(response.data.success){
                 login(response.data.user)
                 localStorage.setItem("token", response.data.token)

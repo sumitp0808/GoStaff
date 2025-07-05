@@ -19,6 +19,7 @@ export const columns = [
 ]
 
 export const DepartmentButtons = ({Id, onDepartmentDelete}) => {
+    const baseURL = import.meta.env.VITE_API_BASE_URL;
     const navigate = useNavigate();
 
     const handleDelete = async (id) => {
@@ -26,7 +27,7 @@ export const DepartmentButtons = ({Id, onDepartmentDelete}) => {
         if(confirm){
              try{
             
-        const response = await axios.delete(`https://go-staff.vercel.app/api/department/${id}`, {
+        const response = await axios.delete(`${baseURL}/api/department/${id}`, {
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`,
           }

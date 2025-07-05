@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 
 const LeaveDetails = () => {
+    const baseURL = import.meta.env.VITE_API_BASE_URL;
     const {id} = useParams();
     const [leave, setLeave] = useState(null);
     const navigate = useNavigate();
@@ -11,7 +12,7 @@ const LeaveDetails = () => {
     useEffect(() => {
     const fetchLeave = async () => {
       try{
-        const response = await axios.get(`https://go-staff.vercel.app/api/leave/details/${id}`, {
+        const response = await axios.get(`${baseURL}/api/leave/details/${id}`, {
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`,
           }
@@ -31,7 +32,7 @@ const LeaveDetails = () => {
 
   const changeStatus = async (id,status) => {
     try{
-        const response = await axios.put(`https://go-staff.vercel.app/api/leave/${id}`, {status},{
+        const response = await axios.put(`${baseURL}/api/leave/${id}`, {status},{
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`,
           }, 
@@ -55,7 +56,7 @@ const LeaveDetails = () => {
     {/* Left Side – Profile */}
     <div className="md:w-1/3 bg-gradient-to-b from-indigo-600 to-purple-600 text-white flex flex-col items-center justify-center p-8">
       <img
-        src={`http://localhost:8080/uploads/${leave.employeeId.userId.profileImage}`}
+        src={`${baseURL}/uploads/${leave.employeeId.userId.profileImage}`}
         alt="Profile"
         className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
       />

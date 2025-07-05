@@ -4,6 +4,7 @@ import { useAuth } from '../../context/authContext';
 import { useNavigate } from 'react-router-dom';
 
 const Settings = () => {
+    const baseURL = import.meta.env.VITE_API_BASE_URL;
     const navigate = useNavigate();
     const {user} = useAuth();
     const [error, setError] = useState(null);
@@ -24,7 +25,7 @@ const Settings = () => {
             setError("confirm password not matching");
         }else{
             try {
-            const response = await axios.put("https://go-staff.vercel.app/api/settings/change-password", settings,{
+            const response = await axios.put(`${baseURL}/api/settings/change-password`, settings,{
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },

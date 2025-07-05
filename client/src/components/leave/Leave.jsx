@@ -7,13 +7,15 @@ import { useAuth } from '../../context/authContext';
 
 
 const Leave = () => {
+    const baseURL = import.meta.env.VITE_API_BASE_URL;
+
     const {user} = useAuth();
 
     const [leaves, setLeaves] = useState([]);
       
     const fetchLeaves = async () => {
         try {
-            const response = await axios.get(`https://go-staff.vercel.app/api/leave/${user._id}`, {
+            const response = await axios.get(`${baseURL}/api/leave/${user._id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },

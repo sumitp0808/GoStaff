@@ -5,12 +5,13 @@ import { columns, LeaveButtons } from '../../utils/LeaveHelper';
 import { useParams } from 'react-router-dom';
 
 const EmpLeaveAction = () => {
+    const baseURL = import.meta.env.VITE_API_BASE_URL;
     const {id} = useParams(); //emp id
     const [leaves, setLeaves] = useState([]);
 
     const fetchLeaves = async () => {
         try {
-            const response = await axios.get(`https://go-staff.vercel.app/api/leave/${id}`, {
+            const response = await axios.get(`${baseURL}/api/leave/${id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },

@@ -6,6 +6,7 @@ import { fetchDepartments, getEmployeesByDep } from '../../utils/EmployeeHelper'
 import axios from 'axios';
 
 const Add = () => {
+    const baseURL = import.meta.env.VITE_API_BASE_URL;
   const [salary, setSalary] = useState({
     employeeId: null,
     basicSalary: 0,
@@ -34,7 +35,7 @@ const Add = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
-        const response = await axios.post(`https://go-staff.vercel.app/api/salary/add`,salary,{
+        const response = await axios.post(`${baseURL}/api/salary/add`,salary,{
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
             },

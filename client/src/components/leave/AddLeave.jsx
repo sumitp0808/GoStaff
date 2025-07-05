@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const AddLeave = () => {
+    const baseURL = import.meta.env.VITE_API_BASE_URL;
     const navigate = useNavigate();
     const {user} = useAuth();
     const [leave, setLeave] = useState({
@@ -18,7 +19,7 @@ const AddLeave = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-        const response = await axios.post(`https://go-staff.vercel.app/api/leave/add`,leave,{
+        const response = await axios.post(`${baseURL}/api/leave/add`,leave,{
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem("token")}`,
             },

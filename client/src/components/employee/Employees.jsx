@@ -8,6 +8,8 @@ import axios from 'axios';
 
 const Employees = () => {
 
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
   const [employees, setEmployees] = useState([]);
   const [empLoading, setEmpLoading] = useState(false);
   const [filteredEmployees, setFilteredEmployees] = useState([]);
@@ -16,7 +18,7 @@ const Employees = () => {
       const fetchEmployees = async () => {
         setEmpLoading(true);
         try{
-          const response = await axios.get('https://go-staff.vercel.app/api/employee', {
+          const response = await axios.get(`${baseURL}/api/employee`, {
             headers: {
               Authorization : `Bearer ${localStorage.getItem('token')}`
             }

@@ -6,12 +6,13 @@ import { useEffect } from 'react';
 
 
 const View = () => {
+    const baseURL = import.meta.env.VITE_API_BASE_URL;
     const [salaries, setSalaries] = useState([]);
     const { id } = useParams();
 
     const fetchSalaries = async () => {
         try {
-            const response = await axios.get(`https://go-staff.vercel.app/api/salary/${id}`, {
+            const response = await axios.get(`${baseURL}/api/salary/${id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },

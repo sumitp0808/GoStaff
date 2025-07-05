@@ -5,7 +5,7 @@ import { columns, DepartmentButtons } from '../../utils/DepartmentHelper'
 import axios from 'axios'
 
 const Departments = () => {
-  
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
   const [departments, setDepartments] = useState([]);
   const [depLoading, setDepLoading] = useState(false);
   const [filteredDept, setFilteredDept] = useState([]);
@@ -19,7 +19,7 @@ const Departments = () => {
     const fetchDepartments = async () => {
       setDepLoading(true);
       try{
-        const response = await axios.get('https://go-staff.vercel.app/api/department', {
+        const response = await axios.get(`${baseURL}/api/department`, {
           headers: {
             "Authorization" : `Bearer ${localStorage.getItem('token')}`
           }

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const AddEmployee = () => {
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
 
   const [departments, setDepartments] = useState([]);
   const [formData, setFormData] = useState({});
@@ -35,7 +36,7 @@ const AddEmployee = () => {
     })
 
     try {
-        const response = await axios.post('https://go-staff.vercel.app/api/employee/add', formDataObj, {
+        const response = await axios.post(`${baseURL}/api/employee/add`, formDataObj, {
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`
           }

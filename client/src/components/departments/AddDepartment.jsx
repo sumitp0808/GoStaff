@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const AddDepartment = () => {
+
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
   const [department, setDepartment] = useState({
     dep_name: '',
     description: ''
@@ -18,7 +21,7 @@ const AddDepartment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-        const response = await axios.post('https://go-staff.vercel.app/api/department/add', department, {
+        const response = await axios.post(`${baseURL}/api/department/add`, department, {
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`
           }

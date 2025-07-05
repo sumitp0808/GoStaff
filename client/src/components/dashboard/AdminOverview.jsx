@@ -5,6 +5,8 @@ import axios from 'axios';
 
 const AdminOverview = () => {
 
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+
   const [summary, setSummary] = useState({
   totalEmployees: 0,
   totalDepartments: 0,
@@ -20,7 +22,7 @@ const AdminOverview = () => {
   useEffect(() => {
     const fetchData = async () => {
       try{
-        const response = await axios.get('https://go-staff.vercel.app/api/dashboard',{
+        const response = await axios.get(`${baseURL}/api/dashboard`,{
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`,
           }

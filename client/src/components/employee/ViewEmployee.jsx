@@ -5,6 +5,7 @@ import { FiEdit2 } from 'react-icons/fi';
 
 
 const ViewEmployee = () => {
+    const baseURL = import.meta.env.VITE_API_BASE_URL;
     const {id} = useParams();
     const [employee, setEmployee] = useState(null);
     const navigate = useNavigate();
@@ -12,7 +13,7 @@ const ViewEmployee = () => {
     useEffect(() => {
     const fetchEmployee = async () => {
       try{
-        const response = await axios.get(`https://go-staff.vercel.app/api/employee/${id}`, {
+        const response = await axios.get(`${baseURL}/api/employee/${id}`, {
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`,
           }
@@ -43,7 +44,7 @@ const ViewEmployee = () => {
 
     <div className="flex flex-col items-center p-6">
     <img
-      src={`http://localhost:8080/uploads/${employee.userId.profileImage}`}
+      src={`${baseURL}/uploads/${employee.userId.profileImage}`}
       alt="Profile"
       className="w-32 h-32 object-cover rounded-full border-4 border-indigo-500 shadow-sm"
     />

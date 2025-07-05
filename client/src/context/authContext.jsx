@@ -5,6 +5,7 @@ import { useContext, createContext, useState } from 'react';
 const userContext = createContext();
 
 const authContext = ({children}) => {
+    const baseURL = import.meta.env.VITE_API_BASE_URL;
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -14,7 +15,7 @@ const authContext = ({children}) => {
             try {
                 const token = localStorage.getItem('token');
                 if(token){
-                    const response = await axios.get('https://go-staff.vercel.app/api/auth/verify',{
+                    const response = await axios.get(`${baseURL}/api/auth/verify`,{
                         headers: {
                             "Authorization" : `Bearer ${token}`
                         },
