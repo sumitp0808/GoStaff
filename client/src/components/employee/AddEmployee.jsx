@@ -191,6 +191,7 @@ const AddEmployee = () => {
                  accept="image/*"
                  className="mt-1 p-2 block w-full border border-gray-300 rounded"
                  onChange={handleChange}
+                 disabled
                 />
               </div>
             </div>
