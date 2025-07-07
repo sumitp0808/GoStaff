@@ -31,7 +31,8 @@ const addEmployee = async (req, res) => {
         password,
         role
     } = req.body;
-
+    console.log(req.body);
+    console.log(req.file);
     const user = await User.findOne({email})
     if(user){
         return res.status(400).json({success: false, error: "user already exists"})
