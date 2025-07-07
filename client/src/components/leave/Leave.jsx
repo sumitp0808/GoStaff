@@ -15,7 +15,7 @@ const Leave = () => {
       
     const fetchLeaves = async () => {
         try {
-            const response = await axios.get(`${baseURL}/api/leave/${user._id}`, {
+            const response = await axios.get(`https://gostaff-backend.vercel.app/api/leave/${user._id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },

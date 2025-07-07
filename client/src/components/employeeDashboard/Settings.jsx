@@ -25,7 +25,7 @@ const Settings = () => {
             setError("confirm password not matching");
         }else{
             try {
-            const response = await axios.put(`${baseURL}/api/settings/change-password`, settings,{
+            const response = await axios.put(`https://gostaff-backend.vercel.app/api/settings/change-password`, settings,{
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },

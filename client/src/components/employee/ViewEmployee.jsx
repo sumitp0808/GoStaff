@@ -13,7 +13,7 @@ const ViewEmployee = () => {
     useEffect(() => {
     const fetchEmployee = async () => {
       try{
-        const response = await axios.get(`${baseURL}/api/employee/${id}`, {
+        const response = await axios.get(`https://gostaff-backend.vercel.app/api/employee/${id}`, {
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`,
           }

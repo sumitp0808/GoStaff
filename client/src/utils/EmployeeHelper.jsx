@@ -34,7 +34,7 @@ export const fetchDepartments = async () => {
     const baseURL = import.meta.env.VITE_API_BASE_URL;
     let departments;
       try{
-        const response = await axios.get(`${baseURL}/api/department`, {
+        const response = await axios.get(`https://gostaff-backend.vercel.app/api/department`, {
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`
           }
@@ -55,7 +55,7 @@ export const getEmployeesByDep = async (id) => {
   const baseURL = import.meta.env.VITE_API_BASE_URL;
     let employees;
       try{
-        const response = await axios.get(`${baseURL}/api/employee/department/${id}`, {
+        const response = await axios.get(`https://gostaff-backend.vercel.app/api/employee/department/${id}`, {
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`
           }

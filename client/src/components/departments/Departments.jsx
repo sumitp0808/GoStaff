@@ -19,7 +19,7 @@ const Departments = () => {
     const fetchDepartments = async () => {
       setDepLoading(true);
       try{
-        const response = await axios.get(`${baseURL}/api/department`, {
+        const response = await axios.get(`https://gostaff-backend.vercel.app/api/department`, {
           headers: {
             "Authorization" : `Bearer ${localStorage.getItem('token')}`
           }

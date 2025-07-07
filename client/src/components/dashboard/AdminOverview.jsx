@@ -22,7 +22,7 @@ const AdminOverview = () => {
   useEffect(() => {
     const fetchData = async () => {
       try{
-        const response = await axios.get(`${baseURL}/api/dashboard`,{
+        const response = await axios.get(`https://gostaff-backend.vercel.app/api/dashboard`,{
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`,
           }

@@ -12,7 +12,7 @@ const View = () => {
 
     const fetchSalaries = async () => {
         try {
-            const response = await axios.get(`${baseURL}/api/salary/${id}`, {
+            const response = await axios.get(`https://gostaff-backend.vercel.app/api/salary/${id}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },

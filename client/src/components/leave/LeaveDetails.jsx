@@ -12,7 +12,7 @@ const LeaveDetails = () => {
     useEffect(() => {
     const fetchLeave = async () => {
       try{
-        const response = await axios.get(`${baseURL}/api/leave/details/${id}`, {
+        const response = await axios.get(`https://gostaff-backend.vercel.app/api/leave/details/${id}`, {
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`,
           }
@@ -32,7 +32,7 @@ const LeaveDetails = () => {
 
   const changeStatus = async (id,status) => {
     try{
-        const response = await axios.put(`${baseURL}/api/leave/${id}`, {status},{
+        const response = await axios.put(`https://gostaff-backend.vercel.app/api/leave/${id}`, {status},{
           headers: {
             Authorization : `Bearer ${localStorage.getItem('token')}`,
           }, 
@@ -56,7 +56,7 @@ const LeaveDetails = () => {
     {/* Left Side – Profile */}
     <div className="md:w-1/3 bg-gradient-to-b from-indigo-600 to-purple-600 text-white flex flex-col items-center justify-center p-8">
       <img
-        src={`${baseURL}/uploads/${leave.employeeId.userId.profileImage}`}
+        src={`https://gostaff-backend.vercel.app/uploads/${leave.employeeId.userId.profileImage}`}
         alt="Profile"
         className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-lg"
       />
